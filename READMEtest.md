@@ -1,10 +1,11 @@
-# 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# NappY the AppY
+
 
 ## Description
 <!-- create line breaks -->
-
+Ever think you sleep too much during the day? This app will monitor your naps and make sure you never oversleep again!
 
 
 ## Table of contents  
@@ -20,18 +21,18 @@
 
 ## Installation Requirements 
 
-
+node, inquirer npm
 
 &nbsp;
 
 ## Install Instructions 
-
+Upon downloading NappY, open the command line and type " init ( ) "
 
 &nbsp;
 
 ## Usage
 
-
+Upon opening NappY, enter the length of your desired nap and hit the " START " button. Then sleep! After your desired time expires, NappY will alert you to wake up.
 
 &nbsp;
 
@@ -49,7 +50,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 &nbsp;
 
 ## Tests
-What tests have you done with this app?
+console.log(" ALL TESTS PASS 100% ")
 
 &nbsp;
 
@@ -58,8 +59,8 @@ Any questions on the app?
 Would you like to contribute to making it be the best it can be?  
 Reach out to me HERE:  
   
+github.com/kylegrabski  
   
+kyle.grabski@gmail.com  
   
-  
-  
-   
+google.com   

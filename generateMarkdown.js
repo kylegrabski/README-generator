@@ -100,10 +100,12 @@ const description = data.description;
 const installInst = data.installInst;
 const installReq = data.installReq;
 const usage = data.usage;
+const test = data.test;
 
-return `# ${title}
-
+return `
 ${licenseBadge}
+# ${title}
+
 
 ## Description
 <!-- create line breaks -->
@@ -147,7 +149,7 @@ ${licenseContent}
 &nbsp;
 
 ## Tests
-What tests have you done with this app?
+${test}
 
 &nbsp;
 

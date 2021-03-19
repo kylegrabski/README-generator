@@ -21,23 +21,20 @@ const questions = inquirer
       message: "What are the installation instructions?",
       name: "installInst",
     },
-    // {
-    //   type: "confirm",
-    //   message: "Required installation npm's?",
-    //   name: "confirmInstall",
-    // },
     {
       type: "input",
       message: "What is required for installation of your app?",
       name: "installReq",
-      // when: function (answer) {
-      //   return answer.confirmInstall;
-      // },
     },
     {
       type: "input",
       message: "Write instructions and examples for your apps use: ",
       name: "usage",
+    },
+    {
+      type: "input",
+      message: "What tests should be ran for your app? ",
+      name: "test",
     },
     {
       type: "list",
@@ -88,7 +85,7 @@ const questions = inquirer
 
   .then((data) => {
     renderLicenseBadge(data);
-    writeToFile("README2.md", generateMarkdown(data));
+    writeToFile("READMEtest.md", generateMarkdown(data));
   });
 
 
