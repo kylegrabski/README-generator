@@ -21,18 +21,18 @@ const questions = inquirer
       message: "What are the installation instructions?",
       name: "installInst",
     },
-    {
-      type: "confirm",
-      message: "Required installation npm's?",
-      name: "confirmInstall",
-    },
+    // {
+    //   type: "confirm",
+    //   message: "Required installation npm's?",
+    //   name: "confirmInstall",
+    // },
     {
       type: "input",
       message: "What is required for installation of your app?",
       name: "installReq",
-      when: function (answer) {
-        return answer.confirmInstall;
-      },
+      // when: function (answer) {
+      //   return answer.confirmInstall;
+      // },
     },
     {
       type: "input",
