@@ -2,8 +2,12 @@
 // If there is no license, return an empty string
 let licenseBadge = "";
 let licenseContent = ""
+
+
 function renderLicenseBadge (data) {
   let badge = data.badge;
+  // switch statement that will alter what licensBadge and licensContent values will be
+  // depending on what the user chose in questions prompt
   switch (badge) {
     case 'MIT':
       licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
@@ -13,7 +17,10 @@ function renderLicenseBadge (data) {
 
       The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
       
-      THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+      THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+      OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+      OTHER DEALINGS IN THE SOFTWARE.
       `;
       break;
 
@@ -67,7 +74,12 @@ function renderLicenseBadge (data) {
       
       3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
       
-      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+      THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR 
+      CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+      PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+      LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+      SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       `;
 
       break;
@@ -78,19 +90,24 @@ function renderLicenseBadge (data) {
    
   
 }
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+
 let licenseLink = "";
 let licenseTitle = "";
+
+// ternary conditions if the parameter exists then add value to the
+// licenseLink and licenseTitle variables in order to
+// create them on the README, if needed.
 function renderLicenseLink(license) {
   licenseLink = (license ? '- [License](#license)' : ""); 
   licenseTitle = (license ? `## License` : "");
 }
 
-// TODO: Create a function to generate markdown for README
+
 const generateMarkdown = (data) => {
+// calling renderLicenseLink and passing the licenseBadge data as an argument
 renderLicenseLink(licenseBadge);
 
+// similar ternary conditions to the renderLicenseLink function
 let github = (data.github) ? `github.com/${data.github}` : "";
 let email = (data.email) ? data.email : ""; 
 let website = (data.website) ? data.website : "";
@@ -108,7 +125,7 @@ ${licenseBadge}
 
 
 ## Description
-<!-- create line breaks -->
+
 ${description}
 
 
@@ -141,7 +158,7 @@ ${usage}
 &nbsp;
 
 ${licenseTitle}
-<!-- displays badge near top of readme -->
+
 ${licenseContent}
 
 &nbsp;
@@ -166,5 +183,6 @@ ${website}
 `
 };
 
+// exporting generateMarkdown and renderLicenseBadge functions
 module.exports = {generateMarkdown, renderLicenseBadge};
 

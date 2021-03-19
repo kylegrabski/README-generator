@@ -16,7 +16,6 @@ const questions = inquirer
       name: "description",
     },
     {
-      // CHANGE THIS TO BE ABLE TO WRITE A LIST
       type: "input",
       message: "What are the installation instructions?",
       name: "installInst",
@@ -84,7 +83,9 @@ const questions = inquirer
   ])
 
   .then((data) => {
+    // pass data into renderLicenseBadge
     renderLicenseBadge(data);
+    // call writeToFile function with file name and calling generateMarkdown function
     writeToFile("READMEtest.md", generateMarkdown(data));
   });
 
@@ -93,13 +94,17 @@ const questions = inquirer
 //  create README file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
+    // if error throw error
     if (err) throw err;
+    // if no error let user know the file has been created
     console.log("...NEW README.md FILE CREATED");
   });
 };
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+
+}
 
 // Function call to initialize app
 init();
