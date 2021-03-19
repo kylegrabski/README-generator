@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("./generateMarkdown")
-
+const generateMarkdown = require("./generateMarkdown").generateMarkdown
+const renderLicenseBadge = require("./generateMarkdown").renderLicenseBadge
 
 const questions = inquirer
   .prompt([
@@ -87,6 +87,7 @@ const questions = inquirer
   ])
 
   .then((data) => {
+    renderLicenseBadge(data);
     writeToFile("README2.md", generateMarkdown(data));
   });
 
