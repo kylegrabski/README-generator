@@ -1,10 +1,12 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("./generateMarkdown").generateMarkdown
-const renderLicenseBadge = require("./generateMarkdown").renderLicenseBadge
+const generateMarkdown = require("./utils/generateMarkdown").generateMarkdown
+const renderLicenseBadge = require("./utils/generateMarkdown").renderLicenseBadge;
+const { prompt } = require("inquirer");
 
-const questions = inquirer
-  .prompt([
+
+
+const questions = [
     {
       type: "input",
       message: "What is the title of your app?",
@@ -80,14 +82,9 @@ const questions = inquirer
         return answer.shareWebsite;
       },
     },
-  ])
+  ]
 
-  .then((data) => {
-    // pass data into renderLicenseBadge
-    renderLicenseBadge(data);
-    // call writeToFile function with file name and calling generateMarkdown function
-    writeToFile("READMEtest.md", generateMarkdown(data));
-  });
+  
 
 
 
@@ -103,7 +100,13 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-
+  prompt(questions)
+  .then((data) => {
+    // pass data into renderLicenseBadge
+    renderLicenseBadge(data);
+    // call writeToFile function with file name and calling generateMarkdown function
+    writeToFile("READMEtest.md", generateMarkdown(data));
+  });
 }
 
 // Function call to initialize app

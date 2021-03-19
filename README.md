@@ -11,7 +11,7 @@ A node app that will ask the user questions and generate a README file based on 
 ## Links
 
 [Github Repo](https://github.com/kylegrabski/README-generator)  
-[Walkthrough Video]()  
+[Walkthrough Video](https://www.youtube.com/watch?v=ozxh93oTCxo)  
 
 <br>
 
