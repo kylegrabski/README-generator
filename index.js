@@ -35,17 +35,15 @@ const questions = inquirer
       },
     },
     {
-      type: "confirm",
-      message: "Share your github?",
-      name: "shareGithub",
+      type: "input",
+      message: "Write instructions and examples for your apps use: ",
+      name: "usage",
     },
     {
-      type: "input",
-      message: "Github Profile: ",
-      name: "github",
-      when: function (answer) {
-        return answer.shareGithub;
-      },
+      type: "list",
+      message: "Select the license you have: ",
+      name: "badge",
+      choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"]
     },
     {
       type: "confirm",

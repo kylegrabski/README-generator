@@ -1,7 +1,14 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
+function renderLicenseBadge  (data) {
+  let badge = data.badge;
+  if (badge === "MIT") {
+    return licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+  } else {
+    return ""
+  }
+}
+let licenseBadge;
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {}
@@ -11,43 +18,21 @@ function renderLicenseLink(license) {}
 function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown (data) {
+const generateMarkdown = (data) => {
 
-
-  // use let instead, create empty variables. if they exist, push into variables.
-let github;
-
-if (data.github) {
-  github = "Github: " + data.github;
-}else{
-   github = "";
-};
-
-let email;
-
-if (data.email) {
-  email = "Email: " + data.email;
-}else{
-   email = "";
-};
-
-let website;
-
-if (data.website) {
-  website = "Website: " + data.website;
-}else{
-   website = "";
-};
-
-
-
+let github = (data.github) ? `github.com/${data.github}` : "";
+let email = (data.email) ? data.email : ""; 
+let website = (data.website) ? data.website : "";
 
 const title = data.title;
 const description = data.description;
 const installInst = data.installInst;
 const installReq = data.installReq;
+const usage = data.usage;
 
 return `# ${title}
+
+${licenseBadge}
 
 ## Description
 <!-- create line breaks -->
@@ -59,14 +44,14 @@ ${description}
 >- [Installation Requirements](#installation-requirements)  
 >- [Install Instructions](#install-instructions)  
 >- [Usage](#usage)  
->- [License](#license)  
->- [Contribute](#contribute)  
+>- [License](#license)    
 >- [Tests](#tests)  
 >- [Questions](#questions)   
 
 &nbsp;
 
 ## Installation Requirements 
+
 ${installReq}
 
 &nbsp;
@@ -77,9 +62,8 @@ ${installInst}
 &nbsp;
 
 ## Usage
-- __Install__ _sample document_
-- __Enter__ _this phrase_ in the command line
-- Enjoy the capabilities of this app!
+
+${usage}
 
 &nbsp;
 
@@ -89,11 +73,6 @@ Here is where your license details will be if applicable.
 
 &nbsp;
 
-## Contribute
-You can contribute to the evelopment of the app here!  
-${github}  
-${email}  
-${website}  
 &nbsp;
 
 ## Tests
@@ -102,7 +81,15 @@ What tests have you done with this app?
 &nbsp;
 
 ## Questions
-This will display your Github profile and email address.
+Any questions on the app?   
+Would you like to contribute to making it be the best it can be?  
+Reach out to me HERE:  
+  
+${github}  
+  
+${email}  
+  
+${website}   
 `
 };
 
